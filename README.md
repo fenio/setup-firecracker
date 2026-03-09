@@ -12,7 +12,7 @@ GitHub Action that runs commands inside a Linux [Firecracker](https://github.com
       uname -a
 ```
 
-### Run k3s with the tns-csi profile
+### Run k3s with the [tns-csi](https://github.com/fenio/tns-csi) profile
 
 ```yaml
 - uses: fenio/linux-firecracker-action@main
@@ -54,6 +54,6 @@ GitHub Action that runs commands inside a Linux [Firecracker](https://github.com
 
 Defaults use the `base` kernel and rootfs. For other workloads, override `kernel-url` and `rootfs-url` with a different profile from [linux-firecracker releases](https://github.com/fenio/linux-firecracker/releases):
 
-**Kernel:** `vmlinux-minimal` | `vmlinux-base` (default) | `vmlinux-tns-csi`
+**Kernel:** `vmlinux-minimal` | `vmlinux-base` (default) | [`vmlinux-tns-csi`](https://github.com/fenio/tns-csi)
 
-**Rootfs:** `rootfs-base.ext4.zst` (default) | `rootfs-tns-csi.ext4.zst` (k3s + nvme-cli, open-iscsi, nfs-common, cifs-utils)
+**Rootfs:** `rootfs-base.ext4.zst` (default) | [`rootfs-tns-csi.ext4.zst`](https://github.com/fenio/tns-csi) (k3s + nvme-cli, open-iscsi, nfs-common, cifs-utils)
