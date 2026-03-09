@@ -1,5 +1,8 @@
-name: Linux Firecracker VM
+name: Setup Firecracker
 description: Run commands inside a Linux Firecracker microVM
+branding:
+  icon: 'cpu'
+  color: 'orange'
 
 inputs:
   kernel-url:
