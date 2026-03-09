@@ -68,11 +68,13 @@ runs:
         [ "$INPUT_VERBOSE" = "true" ] && echo "Kernel URL: $KERNEL_URL"
         [ "$INPUT_VERBOSE" = "true" ] && echo "Rootfs URL: $ROOTFS_URL"
 
-        # Download Firecracker binary
+        # Download Firecracker binary (released as .tgz archive)
         ARCH="$(uname -m)"
-        FC_URL="https://github.com/firecracker-microvm/firecracker/releases/download/${INPUT_FC_VERSION}/firecracker-${INPUT_FC_VERSION}-${ARCH}"
+        FC_URL="https://github.com/firecracker-microvm/firecracker/releases/download/${INPUT_FC_VERSION}/firecracker-${INPUT_FC_VERSION}-${ARCH}.tgz"
         echo "Downloading Firecracker ${INPUT_FC_VERSION}..."
-        curl -fSL -o "$FC_DIR/firecracker" "$FC_URL"
+        curl -fSL -o /tmp/firecracker.tgz "$FC_URL"
+        tar -xzf /tmp/firecracker.tgz -C /tmp
+        cp "/tmp/release-${INPUT_FC_VERSION}-${ARCH}/firecracker-${INPUT_FC_VERSION}-${ARCH}" "$FC_DIR/firecracker"
         chmod +x "$FC_DIR/firecracker"
 
         # Download kernel
